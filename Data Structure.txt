@@ -1,0 +1,471 @@
+// THIS IS STACK...........
+
+#include <iostream>
+using namespace std;
+
+    class stack{
+        public:
+        int *arr;
+        int top;
+        int size;
+        stack(int size){
+            this->size=size;
+            arr=new int[size];
+            top=-1;
+
+         }
+         void push(int element){
+             if(size-top>1){
+                 top++;
+                 arr[top]=element;
+             }
+             else{
+                 cout<<"Stack is overflow";
+             }
+             
+         }
+         void pop(){
+            if(top>=0){
+                top--;
+              
+            }
+            else{
+                cout<<"Stack is underflow";
+            }
+        }
+        int peek(){
+            if(top>=0 )
+            {
+          return arr[top];
+            }else{
+                cout<<"Stack is empty";
+                return -1;
+            }
+            
+        }
+        bool isEmpty(){
+            if(top==-1){
+                return true;
+            }
+            else{
+                return false;
+            }
+            
+        }
+    };
+  int main(){
+stack std(5);
+std.push(44);
+std.push(77);
+cout<<std.peek();
+    return 0;
+}
+...................................
+//THIS IS QUEUE
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+class queue{
+    public:
+    int size;
+    int front;
+    int rear;
+    int *arr;
+  queue(){
+      size=7;
+      front=0;
+      rear=0;
+      arr=new int[size];
+}  
+void enqueue(int element){
+    if(rear==size){
+         cout<<"queue is full"; 
+    }
+    else{
+         arr[rear]=element;
+         rear++;
+    }
+}
+int dequeue(){
+    if(front==rear){
+        cout<<"queue is empty";
+        return -1;
+    }
+    else{
+        int ans=arr[front];
+      arr[front]=-1;
+      front++;
+      if(front==rear){
+         front=0;
+          rear=0;
+      }
+      return ans;
+    }
+}
+int qfront(){
+    if(front==rear){
+        cout<<"queue is empty";
+        return -1;
+    }
+    else{
+        return arr[front];
+    }
+}
+bool isEmpty(){
+    if(front==rear){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+};
+int main() {
+queue std;
+std.enqueue(34);
+cout<<std.isEmpty();
+cout<<std.qfront();
+    return 0;
+}
+................
+THIS IS SELECTION SORT
+
+first element compaire with other then sort and sorted element also compaire with with if other element greater than sorted element 
+the first element takes place first if other element less than sorted element then this element come first and this process
+takes place till all sorted
+
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int main() {
+    // Write C++ code here
+    
+int arr[5]={34,12,23,1,17};
+
+for(int i=0;i<5;i++){
+ 
+
+for(int j=i+1;j<5;j++){
+  if(arr[j]<arr[i]){
+     int temp;
+     emp=arr[j];
+     arr[j]=arr[i];
+     arr[i]=temp;
+  }
+}
+}
+for(int k=0;k<5;k++){
+    cout<<arr[k]<<endl;
+}
+    return 0;
+}
+..........................
+BUBBLE SORT 
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int main() {
+    
+    int arr[]={23,12,9,13,10};
+    for(int i=0;i<5;i++){
+        for(int j=0;j<5-i;j++){
+            if(arr[j]>arr[j+1]){
+                int temp;
+                temp=arr[j];
+                arr[j]=arr[j+1];
+                arr[j+1]=temp;
+            }
+        }
+    }
+    for(int k=0;k<5;k++){
+        cout<<arr[k]<<endl;
+    }
+    return 0;
+}
+
+..............................................
+//LINEAR SEARCH
+
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int main() {
+    // Write C++ code here
+    int a[]={1,5,6,9,8,2};
+    int j=0;
+    for(int i=0;i<=6;i++){
+      if(a[i]==j){
+          cout<<a[i];
+      }  
+      else{
+          cout<<"Your element is not found";
+      }
+      break;
+    }
+
+    return 0;
+}
+...............................
+//insertion sort
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int main() {
+    int a[]={2,1,7,4,8};
+    for(int curdata = 1;curdata<5;curdata++)
+			{
+				for(int prevdata = curdata;prevdata>0;prevdata--)
+				{
+					if(a[prevdata-1]>a[prevdata])
+					{
+						int temp =, a[prevdata];
+						a[prevdata] = a[prevdata-1];
+						a[prevdata-1] = temp;
+					}
+				}
+		
+			}
+			for(int i=0;i<5;i++){
+			    cout<<a[i];
+			}
+		
+    return 0;
+}
+.................................
+//Bianry Search
+
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int binary(int a[],int size,int key){
+    int start=0;
+int end=size-1;
+int mid=(start+end)/2;
+while(start<=end){
+    if(a[mid]==key){
+        return mid;
+    }
+    if(key>a[mid]){
+        start=mid+1;
+    }
+    else{
+        end=mid-1;
+    }
+    mid=(start+end)/2;
+}
+return 1;
+}
+int main() {
+    int n;
+    cout<<"Enter the size of the array"<<endl;
+    cin>>n;
+    int a[n];
+    cout<<"Enter the element in the array"<<endl;
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+int key;
+cout<<"Enter the key ";
+cin>>key;
+int index=binary(a,n,key);
+    
+   cout<<index;
+    
+   return 0;
+   }
+    
+
+    
+'''''''''''''''''''''''''''''''''''''''''''
+//singly linkedlist
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+class Node{
+    public:
+  int data;
+  Node* next;
+  //constructor
+  Node(int data){
+      this->data=data;
+      this->next=NULL;
+  }
+};
+  void insertAtFirst(Node* &head,int d){
+     //new node create
+     Node* temp= new Node(d);
+     //temp cha next head kade point karat ahe
+     temp->next=head;
+     //temp ha head jala
+     head=temp;
+  }
+   void insertAtEnd(Node* &tail,int d){
+      Node* temp=new Node(d);
+      tail->next=temp;
+      tail=temp;
+  }
+  void display(Node* &head){
+      //Ek aur pointer banake head pe point kar diya
+      Node* temp=head;
+      while(temp!=NULL){
+          //current data ko print kiya
+          cout<<temp->data<<" ";
+          temp=temp->next;
+      }
+      cout<<endl;
+  }
+  void insertAtPosition(Node* &tail,Node* &head,int position,int d){
+      //insert At first
+      if(position==1){
+          insertAtFirst(head,d);
+          return;
+      }
+     
+      //insert at ,middle
+      Node* temp=head;
+      int count=1;
+      while(count<position-1){
+          temp=temp->next;
+          count++;
+      }
+
+      
+      //creating a node for d//insert at middle
+      Node* nodeToInsert=new Node(d);
+      //pointing the 
+      nodeToInsert->next=temp->next;
+      temp->next=nodeToInsert;
+      
+             //insert at last for desire
+      if(temp->next==NULL){
+          insertAtEnd(tail,d);
+          return;
+      }
+      
+
+  }
+int main() {
+    //create a new node->parent node
+    Node* node1=new Node(10);
+    //head pointed to node1->inserting at first
+     Node* head=node1;
+   
+//     display(head);
+//   insertAtFirst(head,12);
+//   display(head);
+//   insertAtFirst(head,13);
+//   display(head);
+
+//head point to node1->Inserting at end
+  Node* tail=node1;
+display(head);
+insertAtEnd(tail,12);
+display(head);
+insertAtEnd(tail,15);
+display(head);
+
+//insering at desire position
+// insertAtPosition(head,3,33);
+// display(head);
+// for first position condition
+// insertAtPosition(head,1,33);
+// display(head);
+//for last position condition
+
+// insertAtPosition(tail,head,4,22);
+// display(head);
+
+cout<<"head"<<head->data<<endl;
+cout<<"tail"<<tail->data<<endl;
+
+
+
+    return 0;
+}
+..........................................................
+//doubly linked list
+#include <iostream>
+
+using namespace std;
+class Node{
+    public:
+  int data;
+  Node* prev;
+  Node* next;
+  Node(int data){
+      this->data=data;
+      this->next=NULL;
+      this->prev=NULL;
+  }
+};
+ void insertAtFirst(Node* &head,int d){
+      Node* temp=new Node(d);
+      temp->next=head;
+      head->prev=temp;
+      head=temp;
+      
+  }
+  
+ void insertAtEnd(Node* &tail,int d){
+     Node* temp=new Node(d);
+     tail->next=temp;
+     temp->prev=tail;
+     tail=temp;
+ } 
+ void display(Node* &head){
+      Node* temp=head;
+      while(temp!=NULL){
+          cout<<temp->data<<" ";
+          temp=temp->next;
+          
+      }
+      cout<<endl;
+  }
+  void inserAtPosition(Node* &tail,Node* &head,int position,int d){
+      
+      if(position==1){
+       insertAtFirst(head,d);
+       return;
+      }
+      //insert at middle
+      Node* temp=head;
+      int count=1;
+      while(count<position-1){
+          temp=temp->next;
+      }
+      //insertAtEnd
+      if(temp->next==NULL){
+          insertAtEnd(tail,d);
+          return;
+      }
+      //creating node for d
+      Node* nodeToStart=new Node(d);
+      nodeToStart->next=temp->next;
+      temp->next=nodeToStart;
+      nodeToStart->prev=temp;
+  }
+ 
+int main()
+{
+   Node* node1=new Node(10);
+   Node* head=node1;
+   Node* tail=node1;
+   insertAtFirst(head,23);
+   display(head);
+   insertAtFirst(head,25);
+   display(head);
+   insertAtEnd(tail,56);
+   display(head);
+   inserAtPosition(tail,head,2,100);
+   display(head);
+   inserAtPosition(tail,head,1,200);
+   display(head);
+   cout<<head->data;
+   cout<<tail->data;
+   
+
+    return 0;
+}
+
+
+
